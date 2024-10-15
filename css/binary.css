@@ -293,21 +293,24 @@ li {
 }
 
 .and-gate-container {
-    width: 200px;
+    min-width: 125px;
+    width: 50%;
     height: 300px;
     margin: 20px;
     padding: 10px;
 }
 
 .or-gate-container {
-    width: 300px;
+    min-width: 125px;
+    width: 50%;
     height: 330px;
     margin: 20px;
     padding: 10px;
 }
 
 .xor-gate-container {
-    width: 300px;
+    min-width: 125px;
+    width: 50%;
     height: 330px;
     margin: 20px;
     padding: 10px;
@@ -367,14 +370,13 @@ table {
     border: 3px solid #a4c8e1;
     border-collapse: collapse;
     color: #a4c8e1;
-    padding-left: 15px;
 }
 
 th {
-    border: 2px solid #a4c8e1;
-    padding-left: 7px;
-    padding-right: 7px;
-    font-size: 10pt;
+    border: 3px solid #a4c8e1;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    font-size: 0.8vw;
     font-family: 'Montserrat';
 }
 
