@@ -597,7 +597,7 @@ function isMobile() {
 function redirectMobile() {
     if (isMobile()) {
         // Replace '/mobile-warning.html' with the actual path to your mobile warning page
-        window.location.href = '/mobile.html';
+        window.location.href = 'mobile.html';
     }
 }
 
