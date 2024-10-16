@@ -1,0 +1,44 @@
+body, html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0b041a;
+    color: #d3d3d3;
+    overflow: hidden;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    animation: fade-in 3s forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+h1 {
+    color: #6b8f23;
+    font-size: 5vw;
+    margin-bottom: 20px;
+}
+
+.heading {
+    flex: 1;
+    text-align: right;
+    margin-right: 3vw;
+}
+
+p {
+    color: #a4c8e1;
+    font-size: 1vw;
+    padding-bottom: 10px;
+}

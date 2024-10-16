@@ -63,26 +63,32 @@ document.addEventListener("DOMContentLoaded", function() {
         // Calculate the sum of A and B
         const sumDecimal = aDecimal + bDecimal;
         
-        // Convert the sum back to binary (as a string of length 8, padded with 0s)
-        const sumBinary = sumDecimal.toString(2).padStart(8, '0');
-        
-        // Update the sum row's bits based on the binary result
-        sumBits.forEach((bit, index) => {
-            if (sumBinary[index] === '1') {
-                bit.classList.add('active');
-            } else {
+        // Check for overflow
+        if (sumDecimal > 255) {
+            // Handle overflow
+            sumBits.forEach(bit => {
+                bit.classList.add('overflow');
                 bit.classList.remove('active');
-            }
-        });
+            });
+            decimalSumOutput.textContent = "Overflow";
+            colorDisplay.style.backgroundColor = '#00000000';
+        } else {
+            // Normal case (no overflow)
+            const sumBinary = sumDecimal.toString(2).padStart(8, '0');
+            
+            sumBits.forEach((bit, index) => {
+                bit.classList.remove('overflow');
+                if (sumBinary[index] === '1') {
+                    bit.classList.add('active');
+                } else {
+                    bit.classList.remove('active');
+                }
+            });
 
-        // Update the decimal sum in the HTML
-        decimalSumOutput.textContent = sumDecimal;
-
-        // Get the corresponding color from the palette (wrap sumDecimal to 255)
-        const color = colorPalette[sumDecimal % 256];
-
-        // Update the color display (set background color)
-        colorDisplay.style.backgroundColor = color;
+            decimalSumOutput.textContent = sumDecimal;
+            const color = colorPalette[sumDecimal];
+            colorDisplay.style.backgroundColor = color;
+        }
     }
 
     // Add click event listeners for Value A bits
@@ -582,3 +588,18 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     updateTransistor();
 });
+
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Function to redirect mobile users
+function redirectMobile() {
+    if (isMobile()) {
+        // Replace '/mobile-warning.html' with the actual path to your mobile warning page
+        window.location.href = '/mobile.html';
+    }
+}
+
+// Call the redirect function when the page loads
+window.onload = redirectMobile;
