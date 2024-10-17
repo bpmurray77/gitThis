@@ -279,7 +279,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const transistorDc = document.getElementById('transistorDc');
     const transistorDl = document.getElementById('transistorDl');
     const oroutput = document.getElementById('oroutput');
-    const magicor = document.getElementById('magicor');
     const logicB1 = document.getElementById('logicB1');
     const logicB2 = document.getElementById('logicB2');
     const logicB3 = document.getElementById('logicB3');
@@ -298,7 +297,6 @@ document.addEventListener("DOMContentLoaded", function() {
         transistorCl.style.transform = stateC ? 'translateX(15px)' : 'translateX(0)';
         transistorDl.style.transform = stateD ? 'translateX(-15px)' : 'translateX(0)';
         oroutput.setAttribute('fill', (stateC || stateD) ? '#4CAF50' : '#FF5252');
-        magicor.setAttribute('fill', (stateC || stateD) ? '#4CAF50' : '#FF5252');
     }
 
     inputC.addEventListener('click', () => {
@@ -418,38 +416,6 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltipText.style.top = `${top}px`;
         });
     });
-});
-
-// Select the scrollable container and the element (SVG container)
-const docContainer = document.querySelector('.documentation-container');
-const magicor = document.getElementById('magicor');
-
-// Define a scroll point where you want the element to appear
-const scrollPoint = 999999999; 
-
-// Add a scroll event listener to the specific scrollable div
-docContainer.addEventListener('scroll', () => {
-  
-  const scrollPosition = docContainer.scrollTop;
-
-  // Show the element when the user scrolls past the scroll point
-  if (scrollPosition > scrollPoint) {
-    magicor.classList.add('show');
-  } else {
-    // Keep the element visible even when scrolling back up
-    if (magicor.classList.contains('show')) {
-      magicor.classList.add('show');
-    }
-  }
-
-  if (scrollPosition > scrollPoint) {
-    magicxor.classList.add('show');
-  } else {
-    
-    if (magicxor.classList.contains('show')) {
-      magicxor.classList.add('show');
-    }
-  }
 });
 
 document.addEventListener("DOMContentLoaded", function() {
